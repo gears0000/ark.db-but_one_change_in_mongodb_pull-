@@ -156,7 +156,7 @@ module.exports = class MongoDB extends Base {
 			throw new Error("Please specify a valid element to pull!");
 		const data = (await this.get(key)) || [];
 		if (!Array.isArray(data)) throw new Error("The data is not a array!");
-		const newData = data.filter((x) => !x.includes(el));
+		const newData = data.filter((x) => x != el);
 		return this.set(key, newData);
 	}
 
